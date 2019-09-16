@@ -78,18 +78,26 @@
                     href="http://blog.csdn.net/wuxia2001" target="_blank">你</a> 相识的
                 <div id="clock"></div>
             </div>
-            <canvas id="canvas" width="1100" height="680"></canvas>
+            <canvas id="canvas" width="1100" height="680" class="love"></canvas>
         </div>
         <audio id="Audio" src="./src/Confession.mp3"></audio>
     </div>
 
     <script>
+        var Body = $('body');
+        var Audio = document.getElementById('Audio');
+        Body.click(function (e) {
+            console.log(Audio)
+
+            Audio.play();
+        })
     </script>
 
     <script>
+        window.flag = false;
         (function () {
             var canvas = $('#canvas');
-            var Audio = $("#Audio");
+
 
             if (!canvas[0].getContext) {
                 $("#error").show();
@@ -144,7 +152,7 @@
             var hold = 1;
 
             canvas.click(function (e) {
-                Audio.play();
+
                 var offset = canvas.offset(),
                     x, y;
                 x = e.pageX - offset.left;
